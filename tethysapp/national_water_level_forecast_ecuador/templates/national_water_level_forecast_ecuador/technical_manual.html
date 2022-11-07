@@ -24,7 +24,77 @@
 {% endblock %}
 
 {% block app_content %}
-<h1>Manual Técnico</h1>
+<center></center><h1 style="color:#20295c;"><strong>MANUAL TÉCNICO</strong></h1><center></center>
+
+<center></center><h1 style="color:#20295c;"><strong>NATIONAL WATER LEVEL FORECAST</strong></h1><center></center>
+
+<p>El modelo hidrológico global de GEOGloWS ECMWF Streamflow Services (GESS) provee un pronóstico hidrológico de 52 miembros
+y una simulación histórica para cada río en el mundo.</p>
+
+<p>La corrección de sesgo usada se basa en curvas de duración de caudales mensuales descrito por
+  <a href="https://doi.org/10.3390/hydrology8020071"> Sanchez-Lozano,2021.</a></p>
+<p>La metodología de corrección del sesgo combina los datos observados
+localmente y los valores simulados del modelo GESS para ajustar la magnitud de los valores simulados.
+Los valores de caudal tienen incertidumbre porque estos son obtenidos a través de una curva de calibración para
+cada sección del río.
+El nivel de agua es la única variable a cerca de la cual se tiene certeza. Adicionlmente, es más fácil tener
+mediciones de nivel de agua en cualquier sección del río. Por otro lado, hay más valores de nivel de agua disponibles
+que valores de caudal.</p>
+
+<p><center><img src="{% static 'national_water_level_forecast_ecuador/images/imgs/nwlf/curva.png' %}" style="width: 600px;" /> </center></p>
+
+
+<p>Por lo tanto, es posible extender la metodología de corrección de sesgo para generar valores simulados de nivel de agua
+usando el modelo GESS.</p>
+
+<p><center><img src="{% static 'national_water_level_forecast_ecuador/images/imgs/nwlf/cdf.png' %}" style="width: 600px;" /> </center></p>
+
+<p>Para cada mes en las series de tiempo históricas de nivel de agua observada y de caudales simulados, se calcula la curva
+de duración de caudales y de niveles según corresponda. Después de eso, en un solo mes, se puede estimar la probabilidad
+de no excedencia de cada valor simulado. Por lo tanto, es posible estimar el valor de nivel de agua observado que
+corresponde a esa probabilidad de no excedencia. Finalmente, convertimos el valor simulado reemplazándolo con el nivel
+de agua observado equivalente a la misma probabilidad de no excedencia.</p>
+
+
+<p><center><img src="{% static 'national_water_level_forecast_ecuador/images/imgs/nwlf/compare.png' %}" style="width: 600px;" /> </center></p>
+
+<p>La figura anterior muestra la extensión de la corrección del sesgo para los niveles de agua aplicada para toda la
+simulación histórica. Después de esta extensión de la corrección del sesgo para los niveles de agua, la simulación
+histórica proporciona una simulación histórica del nivel de agua basada en la simulación histórica original del caudal.
+El método convierte los valores del caudal en valores del nivel del agua cercanos a los datos observados. Pero
+no corrige el tiempo de los picos. Sin embargo, los nuevos valores simulados están en el mismo orden de magnitud que los
+valores observados.</p>
+
+<p>Aplicamos la metodología descrita anteriormente para las diferentes estaciones de aforo de los Países Amazónicos.
+Utilizamos el coeficiente de eficiencia de Kling-Gupta (KGE -2012) para cuantificar el error de la simulación histórica.
+La figura siguiente muestra los resultados antes y después de la corrección del sesgo.</p>
+
+<p><center><img src="{% static 'national_water_level_forecast_ecuador/images/imgs/nwlf/amazonia.png' %}" style="width: 600px;" /> </center></p>
+
+<p>Estos resultados son alentadores y sugieren que esta corrección de sesgo implementada puede utilizarse para obtener
+localmente previsiones del nivel del agua cuando se dispone de observaciones históricas. Utilizamos la simulación del
+nivel de agua histórico para definir los nuevos periodos de retorno que definirán el umbral de alerta. La metodología
+propuesta para obtener la previsión del nivel del agua utiliza la curva de duración del caudal mensual y la curva de
+duración del nivel del agua para los valores históricos simulados del caudal y los valores observados del nivel del agua
+y ajusta los valores de previsión de la misma manera que lo hicimos para la simulación histórica.</p>
+
+<p><center><img src="{% static 'national_water_level_forecast_ecuador/images/imgs/nwlf/pronostico.png' %}" style="width: 600px;" /> </center></p>
+
+<p style="color:#20295c;"><strong><h6>Recursos Adicionales</h6></strong></p>
+<p>Ejercicio práctico:Water Level - GEOGloWS ECMWF Streamflow Services - Brazil</p>
+<p><a href="https://colab.research.google.com/drive/1cuKOV-TDjrS2gzGVIi2_sgSCqhDSyGne">Google Colab de ejemplo</a></p>
+
+
+<h5 style="color:#20295c;"><strong>Páginas de Interés</strong></h5>
+<p>Página de INAMHI: <a class="reference external" href="https://www.inamhi.gob.ec/">INAMHI</a></p>
+<p>Página de SERVIR-Amazonia: <a class="reference external" href="https://servir.ciat.cgiar.org/?lang=es">SERVIR-Amazonia</a></p>
+<p>Página de Fundación EcoCiencia: <a class="reference external" href="https://ecociencia.org/">Fundacion EcoCiencia</a></p>
+<p>Página de Laboratorio de Hydroinformática Brigham Young University: <a class="reference external" href="https://hydroinformatics.byu.edu/">Página BYU</a></p>
+<p>Video de Brigham Young University-GEOGloWS: <a class="reference external" href="https://youtu.be/PLG8U8AQmXY">Video BYU</a></p>
+
+
+
+
 {% endblock %}
 
 {% block after_app_content %}

@@ -78,6 +78,12 @@
   </div>
 {% endblock %}
 
+{% block app_navigation_items %}
+{% url "national_water_level_forecast_ecuador:home" as home %}
+{% url "national_water_level_forecast_ecuador:user_manual" as user_manual %}
+{% url "national_water_level_forecast_ecuador:technical_manual" as technical_manual %}
+{% endblock %}
+
 {# Use the after_app_content block for modals #}
 {% block after_app_content %}
   <!----Observed Data ----->
@@ -291,7 +297,9 @@
             <li>El usuario debe tener en cuenta la probabilidad de que una predicción no sea siempre  correcta.</li>
             <li>El usuario de esta herramienta acepta de antemano la forma y uso de la información.</li>
           </ol style="color:#e61e29;">
-
+          <h5>Recursos adicionales:</h5>
+          <p><a href=" user_manual " target="_blank">Manual de Usuarios</a></p>
+          <p><a href=" technical_manual " target="_blank">Manual Técnico</a></p>
             <div class="modal-footer">
             <div class="FootNote">
               <p style ><sup>
