@@ -16,6 +16,7 @@ import scipy.stats as sp
 import hydrostats.data as hd
 import plotly.graph_objs as go
 
+from tethys_sdk.routing import controller
 from csv import writer as csv_writer
 from HydroErr.HydroErr import metric_names, metric_abbr
 from hs_restclient import HydroShare, HydroShareAuthBasic
@@ -26,7 +27,7 @@ from django.http import HttpResponse, JsonResponse
 from .app import NationalWaterLevelForecastEcuador as app
 
 from .model import Stations_manage as stations
-
+@controller(name='home', url='national-water-level-forecast-ecuador')
 def home(request):
     """
     Controller for the app home page.
@@ -135,6 +136,7 @@ def home(request):
 
     return render(request, 'national_water_level_forecast_ecuador/home.html', context)
 
+@controller(name='get_popup_response', url='national-water-level-forecast-ecuador/get-request-data')
 def get_popup_response(request):
     """
     get station attributes
@@ -242,6 +244,7 @@ def get_popup_response(request):
             'error': f'{"error: " + str(e), "line: " + str(exc_tb.tb_lineno)}',
         })
 
+@controller(name='get_hydrographs', url='national-water-level-forecast-ecuador/get-hydrographs')
 def get_hydrographs(request):
     """
     Get observed data from csv files in Hydroshare
@@ -320,6 +323,7 @@ def get_hydrographs(request):
             'error': f'{"error: " + str(e), "line: " + str(exc_tb.tb_lineno)}',
         })
 
+@controller(name='get_dailyAverages', url='national-water-level-forecast-ecuador/get-dailyAverages')
 def get_dailyAverages(request):
     """
     Get observed data from csv files in Hydroshare
@@ -384,6 +388,7 @@ def get_dailyAverages(request):
             'error': f'{"error: " + str(e), "line: " + str(exc_tb.tb_lineno)}',
         })
 
+@controller(name='get_monthlyAverages', url='national-water-level-forecast-ecuador/get-monthlyAverages')
 def get_monthlyAverages(request):
     """
     Get observed data from csv files in Hydroshare
@@ -449,6 +454,7 @@ def get_monthlyAverages(request):
             'error': f'{"error: " + str(e), "line: " + str(exc_tb.tb_lineno)}',
         })
 
+@controller(name='get_scatterPlot', url='national-water-level-forecast-ecuador/get-scatterPlot')
 def get_scatterPlot(request):
     """
     Get observed data from csv files in Hydroshare
@@ -536,6 +542,7 @@ def get_scatterPlot(request):
             'error': f'{"error: " + str(e), "line: " + str(exc_tb.tb_lineno)}',
         })
 
+@controller(name='get_scatterPlotLogScale', url='national-water-level-forecast-ecuador/get-scatterPlotLogScale')
 def get_scatterPlotLogScale(request):
     """
     Get observed data from csv files in Hydroshare
@@ -611,6 +618,7 @@ def get_scatterPlotLogScale(request):
             'error': f'{"error: " + str(e), "line: " + str(exc_tb.tb_lineno)}',
         })
 
+@controller(name='make_table_ajax', url='national-water-level-forecast-ecuador/make-table-ajax')
 def make_table_ajax(request):
 
     start_time = time.time()
@@ -735,6 +743,7 @@ def make_table_ajax(request):
             'error': f'{"error: " + str(e), "line: " + str(exc_tb.tb_lineno)}',
         })
 
+@controller(name='get-time-series-bc', url='national-water-level-forecast-ecuador/get-time-series-bc')
 def get_time_series_bc(request):
 
     start_time = time.time()
@@ -1116,6 +1125,7 @@ def get_time_series_bc(request):
             'error': f'{"error: " + str(e), "line: " + str(exc_tb.tb_lineno)}',
         })
 
+@controller(name='get-available-dates', url='national-water-level-forecast-ecuador/ecmwf-rapid/get-available-dates')
 def get_available_dates(request):
     get_data = request.GET
     watershed = get_data['watershed']
@@ -1190,7 +1200,7 @@ def get_available_dates(request):
 #        return JsonResponse({
 #            'error': f'{"error: " + str(e), "line: " + str(exc_tb.tb_lineno)}',
 #        })
-
+@controller(name='get_simulated_bc_water_level_csv', url='national-water-level-forecast-ecuador/get-simulated-bc-water-level-csv')
 def get_simulated_bc_water_level_csv(request):
     """
     Get historic simulations from ERA Interim
@@ -1226,6 +1236,7 @@ def get_simulated_bc_water_level_csv(request):
             'error': f'{"error: " + str(e), "line: " + str(exc_tb.tb_lineno)}',
         })
 
+@controller(name='get_forecast_bc_data_csv', url='national-water-level-forecast-ecuador/get-forecast-bc-data-csv')
 def get_forecast_bc_data_csv(request):
     """""
     Returns Forecast data as csv
@@ -1260,6 +1271,7 @@ def get_forecast_bc_data_csv(request):
             'error': f'{"error: " + str(e), "line: " + str(exc_tb.tb_lineno)}',
         })
 
+@controller(name='get_forecast_ensemble_bc_data_csv', url='national-water-level-forecast-ecuador/get-forecast-ensemble-bc-data-csv')
 def get_forecast_ensemble_bc_data_csv(request):
     """""
     Returns Forecast data as csv
@@ -1297,6 +1309,7 @@ def get_forecast_ensemble_bc_data_csv(request):
             'error': f'{"error: " + str(e), "line: " + str(exc_tb.tb_lineno)}',
         })
 
+@controller(name='user_manual', url='national-water-level-forecast-ecuador/user_manual')
 def user_manual(request):
     """
     Controller for the technical manual page.
@@ -1306,6 +1319,8 @@ def user_manual(request):
     }
 
     return render(request, 'national_water_level_forecast_ecuador/user_manual.html', context)
+
+@controller(name='technical_manual', url='national-water-level-forecast-ecuador/technical_manual')
 def technical_manual(request):
     """
     Controller for the user manual page.
@@ -1318,6 +1333,7 @@ def technical_manual(request):
 
 
 ############################################################
+@controller(name='get_zoom_array', url='national-water-level-forecast-ecuador/get-zoom-array')
 def get_zoom_array(request):
     zoom_description = request.GET['zoom_desc']
 

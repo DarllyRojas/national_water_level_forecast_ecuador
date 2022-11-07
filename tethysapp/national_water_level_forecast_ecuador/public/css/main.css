@@ -1,3 +1,18 @@
+#modal-headerex{
+  display: inline;
+}
+
+.logos_cuadrado{
+  display: flex;
+  flex-direction: row;
+  height: fit-content;
+  flex-basis: fit-content;
+  justify-content: end;
+}
+#servir_logo{
+  height: 47px;
+}
+
 .tab-content > .tab-pane,
 .pill-content > .pill-pane {
   display: block;
@@ -111,8 +126,12 @@
 }
 
 .obslogos {
-    width: 40%;
+    width: 70%;
     padding: 0 5px 0 5px;
+    height: fit-content;
+    margin-left: auto;
+    margin-right: auto;
+    display: block;
 }
 
 #Download_hydrographs{
