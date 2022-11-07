@@ -15,13 +15,13 @@
         <svg width="20" height="20" viewPort="0 0 20 20" version="1.1" xmlns="http://www.w3.org/2000/svg">
           <polyline points="19 1, 1 6, 19 14, 1 19" stroke="#4074dd" fill="transparent" stroke-width="2"/>
         </svg>
-        Ríos <input id="stp-stream-toggle" class="toggle-layer" type="checkbox" checked data-toggle="toggle" data-size="mini">
+        Ríos <input id="stp-stream-toggle" class="toggle-layer" type="checkbox" checked data-bs-toggle="toggle" data-size="mini">
       </div>
       <div>
         <svg width="20" height="20" viewPort="0 0 20 20" version="1.1" xmlns="http://www.w3.org/2000/svg">
           <polyline points="0 10, 0 0, 10 0, 10 10, 0 10" stroke="#e61e29" fill="#e61e29" stroke-width="2"/>
         </svg>
-        Estaciones <input id="stp-stations-toggle" class="toggle-layer" type="checkbox" checked data-toggle="toggle" data-size="mini">
+        Estaciones <input id="stp-stations-toggle" class="toggle-layer" type="checkbox" checked data-bs-toggle="toggle" data-size="mini">
       </div>
       <div>
         <br>
@@ -69,12 +69,12 @@
   <div class="hidden" style="margin-right: 15px;">
     {% gizmo text_input geoserver_endpoint %}
   </div>
-  <div class="header-button glyphicon-button" data-toggle="tooltip" data-placement="bottom" title="View Graph">
-    <a data-toggle="modal" data-target="#obsgraph"><span class="glyphicon glyphicon-globe"></span></a>
+  <div class="header-button glyphicon-button" data-bs-toggle="tooltip" data-bs-placement="bottom" title="View Graph">
+    <a data-bs-toggle="modal" data-bs-target="#obsgraph"><span class="glyphicon glyphicon-globe"></span></a>
   </div>
 
-  <div class="header-button glyphicon-button" data-toggle="tooltip" data-placement="bottom" title="Help">
-    <a data-toggle="modal" data-target="#help-modal"><span class="glyphicon glyphicon-question-sign"></span></a>
+  <div class="header-button glyphicon-button" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Help">
+    <a data-bs-toggle="modal" data-bs-target="#help-modal"><span class="glyphicon glyphicon-question-sign"></span></a>
   </div>
 {% endblock %}
 
@@ -91,7 +91,7 @@
     <div class="modal-dialog" role="document">
       <div class="modal-content">
         <div class="modal-header">
-          <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+          <button type="button" class="close" data-bs-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
           <div class="row">
             <div id="station-info" class="col-md-8"></div>
             <div class="col-md-4">
@@ -108,10 +108,10 @@
         <div class="modal-body">
           <!-- Nav tabs -->
           <ul class="nav nav-tabs" role="tablist">
-            <li role="presentation" class="active"><a id="hydrographs_tab_link" href="#hydrographs" aria-controls="hydrographs" role="tab" data-toggle="tab">Hydrographs</a></li>
-            <li role="presentation"><a id="visualAnalysis_tab_link" href="#visualAnalysis" aria-controls="visualAnalysis" role="tab" data-toggle="tab">Visual Analysis</a></li>
-            <li role="presentation"><a id="metricsReport_tab_link" href="#metricsReport" aria-controls="metricsReport" role="tab" data-toggle="tab">Metrics Report</a></li>
-            <li role="presentation"><a id="forecast_tab_link" href="#forecast" aria-controls="forecast" role="tab" data-toggle="tab">Forecast</a></li>
+            <li role="presentation" class="active"><a id="hydrographs_tab_link" href="#hydrographs" aria-controls="hydrographs" role="tab" data-bs-toggle="tab">Hydrographs</a></li>
+            <li role="presentation"><a id="visualAnalysis_tab_link" href="#visualAnalysis" aria-controls="visualAnalysis" role="tab" data-bs-toggle="tab">Visual Analysis</a></li>
+            <li role="presentation"><a id="metricsReport_tab_link" href="#metricsReport" aria-controls="metricsReport" role="tab" data-bs-toggle="tab">Metrics Report</a></li>
+            <li role="presentation"><a id="forecast_tab_link" href="#forecast" aria-controls="forecast" role="tab" data-bs-toggle="tab">Forecast</a></li>
           </ul>
           <!-- Tab panes -->
           <div class="tab-content">
@@ -261,7 +261,7 @@
         </div>
         <div id="info" class="hidden"></div>
         <div class="modal-footer">
-          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+          <button type="button" class="btn btn-default" data-bs-dismiss="modal">Close</button>
         </div>
       </div>
     </div>
@@ -271,7 +271,7 @@
     <div class="modal-dialog" role="document">
       <div class="modal-content">
         <div class="modal-header">
-          <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+          <button type="button" class="close" data-bs-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
           <h5 class="modal-title" id="help-modal-label" style="color:#20295c;"> <strong>National Water Level Forecast</strong></h5>
         </div>
         <div class="modal-body">
@@ -310,8 +310,8 @@
 
         </div>
         <div class="modal-footer">
-          <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
-          <button type="button" class="btn btn-primary" data-dismiss="modal">OK</button>
+          <button type="button" class="btn btn-default" data-bs-dismiss="modal">Cancel</button>
+          <button type="button" class="btn btn-primary" data-bs-dismiss="modal">OK</button>
         </div>
       </div>
     </div>
