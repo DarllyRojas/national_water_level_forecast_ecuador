@@ -7,7 +7,7 @@ class NationalWaterLevelForecastEcuador(TethysAppBase):
     """
 
     name = 'National Water Level Forecast Ecuador'
-    index = 'national_water_level_forecast_ecuador:home'
+    index = 'home'
     icon = 'national_water_level_forecast_ecuador/images/nwlf.jpg'
     package = 'national_water_level_forecast_ecuador'
     root_url = 'national-water-level-forecast-ecuador'
@@ -37,6 +37,7 @@ class NationalWaterLevelForecastEcuador(TethysAppBase):
         UrlMap = url_map_maker(self.root_url)
 
         url_maps = (
+
             UrlMap(
                 name='home',
                 url='national-water-level-forecast-ecuador',
