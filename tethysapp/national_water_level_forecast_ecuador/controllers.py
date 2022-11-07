@@ -244,7 +244,7 @@ def get_popup_response(request):
             'error': f'{"error: " + str(e), "line: " + str(exc_tb.tb_lineno)}',
         })
 
-@controller(name='get_hydrographs', url='national-water-level-forecast-ecuador/get-request-data')
+@controller(name='get_hydrographs', url='national-water-level-forecast-ecuador/get-hydrographs')
 def get_hydrographs(request):
     """
     Get observed data from csv files in Hydroshare
