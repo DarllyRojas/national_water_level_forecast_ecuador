@@ -1333,7 +1333,7 @@ def technical_manual(request):
 
 
 ############################################################
-@controller(name='get_zoom_array', url='national-water-level-forecast-ecuador/get_zoom_array')
+@controller(name='get_zoom_array', url='national-water-level-forecast-ecuador/get-zoom-array')
 def get_zoom_array(request):
     zoom_description = request.GET['zoom_desc']
 
