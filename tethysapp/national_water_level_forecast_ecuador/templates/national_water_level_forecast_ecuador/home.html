@@ -53,7 +53,7 @@
         </div>
         {# Search button #}
         <div>
-          <button id="search-btn" style="width: 100%;"><span class="glyphicon glyphicon-search"></span></button>
+          <button id="search-btn" style="width: 100%;"><i class="bi bi-search"></i></button>
         </div>
         {# Alert window #}
         <div id="search-alert" class="d-none">
@@ -69,12 +69,21 @@
   <div class="d-none" style="margin-right: 15px;">
     {% gizmo text_input geoserver_endpoint %}
   </div>
-  <div class="header-button glyphicon-button" data-bs-toggle="tooltip" data-bs-placement="bottom" title="View Graph">
-    <a data-bs-toggle="modal" data-bs-target="#obsgraph"><span class="glyphicon glyphicon-globe"></span></a>
-  </div>
 
-  <div class="header-button glyphicon-button" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Help">
-    <a data-bs-toggle="modal" data-bs-target="#help-modal"><span class="glyphicon glyphicon-question-sign"></span></a>
+  <div class="header-button" data-bs-toggle="tooltip" data-placement="bottom" title="View Graph">
+    <a data-bs-toggle="modal" data-bs-target="#obsgraph"><i class="bi bi-globe"></i></a>
+  </div>
+<!--   
+  <div class="header-button glyphicon-button" data-bs-toggle="tooltip" data-bs-placement="bottom" title="View Graph">
+    <a data-bs-toggle="modal" data-bs-target="#obsgraph"><i class="bi bi-globe"></i></a>
+  </div> -->
+
+  <!-- <div class="header-button glyphicon-button" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Help">
+    <a data-bs-toggle="modal" data-bs-target="#help-modal"><i class="bi bi-question-diamond-fill"></i></span></a>
+  </div> -->
+
+  <div class="header-button" data-bs-toggle="tooltip" data-placement="bottom" title="Help">
+    <a data-bs-toggle="modal" data-bs-target="#help-modal"><i class="bi bi-question-diamond-fill"></i></a>
   </div>
 {% endblock %}
 
@@ -131,7 +140,7 @@
                     -->
                     <div id="download_simulated_bc_water_level" class="btn-group d-none long-term-select" role="group">
                       <a class="btn btn-info" role="button" id="submit-download-simulated-bc-water-level">
-                        <span class="glyphicon glyphicon-play"></span> Corrected Simulated Water Level
+                        <i class="bi bi-play-circle"></i> Corrected Simulated Water Level
                       </a>
                     </div>
                   </div>
@@ -177,9 +186,10 @@
                         Spearman Rank Correlation Coefficient, and Coefficient of Determination.
                     </p>
                     Optional Parameters
-                    <span style="font-size: 15px;" class="glyphicon glyphicon-info-sign icon_info"
+                    <i class="bi bi-info-circle-fill" title="Optional parameter input boxes will appear here if a metric with optional parameters is selected."></i>
+                    <!-- <span style="font-size: 15px;" class="glyphicon glyphicon-info-sign icon_info"
                           title="Optional parameter input boxes will appear here if a metric with optional parameters is selected.">
-                    </span>
+                    </span> -->
                   </h4>
                   <div class="form-row" id="mase_param_div" style="display: none">
                     <div class="form-group col-md-12" id="MASE_form">
@@ -246,12 +256,13 @@
                   <div id="forecast-bc-chart"></div>
                   <div id="download_forecast_bc" class="btn-group d-none" role="group">
                     <a class="btn btn-info" role="button" id="submit-download-forecast-bc">
-                      <span class="glyphicon glyphicon-play"></span> Download Forecast
+                      <i class="bi bi-play-circle"></i> Download Forecast
+                      
                     </a>
                   </div>
                   <div id="download_forecast_ensemble_bc" class="btn-group d-none" role="group">
                     <a class="btn btn-success" role="button" id="submit-download-forecast-bc-ensemble">
-                      <span class="glyphicon glyphicon-play"></span> Download Forecast Ensemble
+                      <i class="bi bi-play-circle"></i> Download Forecast Ensemble
                     </a>
                   </div>
                 </div>
