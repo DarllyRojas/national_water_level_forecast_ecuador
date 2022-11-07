@@ -553,7 +553,7 @@ function get_scatterPlotLogScale(
       stationcode: stationcode,
       stationname: stationname,
     },
-    error: function () {
+    error: function (e) {
       $('#scatterPlotLogScale-loading').addClass('d-none');
       console.log(e);
       $('#info').html(
@@ -673,31 +673,35 @@ function map_events() {
             stationname_rt = result['features'][0]['properties']['puobnomb'];
             stationid_rt = result['features'][0]['properties']['esta__id'];
             stationcat_rt = result['features'][0]['properties']['catenomb'];
+            $('#Station-Name-Tab').html(stationname)
 
             $('#station-info').append(
-              '<h3 id="Station-Name-Tab">Estación: ' +
-                stationname +
-                '</h3><h5 id="Station-Code-Tab">Código Estación: ' +
+              '<div class=" col col-md-6">'+
+
+                '<p id="Station-Code-Tab"> <strong> Código Estación:</strong> ' +
                 stationcode +
-                '</h3><h5 id="COMID-Tab">COMID Estación: ' +
+                '</p><p  id="COMID-Tab"><strong>COMID Estación:</strong>' +
                 streamcomid +
-                '</h5><h5>Cuenca: ' +
+                '</p><p ><strong>Cuenca:</strong>' +
                 basin +
-                '</h5><h5>Corriente: ' +
+                '</p><p ><strong>Corriente:</strong>' +
                 river +
-                '</h5><h5>Provincia: ' +
+                '</p><p><strong>Provincia:</strong>' +
                 province +
-                '</h5><h5>Cantón: ' +
-                canton +
-                '</h5><h5>Parroquia: ' +
-                parroquia +
-                '</h5><h5>Latitud: ' +
-                latitud +
-                '°</h5><h5>Longitud: ' +
-                longitud +
-                '°</h5><h5>Elevación: ' +
-                elevacion +
-                'msnm</h7>'
+                  '</p><p><strong>Cantón:</strong>' +
+                  canton + '</p>'+
+                  '</div><div class=" col col-md-6">'+
+                  '<p><strong>Parroquia:</strong>' +
+                  parroquia +
+                  '</p><p><strong>Latitud:</strong>' +
+                  latitud +
+                  '°</p><p><strong>Longitud:</strong>' +
+                  longitud +
+                  '°</p><p><strong>Elevación:</strong>' +
+                  elevacion +
+                  'msnm</p>' +
+                '</div>'
+
             );
 
             get_requestData(

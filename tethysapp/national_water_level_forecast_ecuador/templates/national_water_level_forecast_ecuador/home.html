@@ -97,31 +97,40 @@
 {% block after_app_content %}
   <!----Observed Data ----->
   <div class="modal fade" id="obsgraph" tabindex="-1" role="dialog" aria-labelledby="about-modal-label">
-    <div class="modal-dialog" role="document">
+    <div class="modal-dialog modal-xl" role="document">
       <div class="modal-content">
-        <div class="modal-header">
+        <div id = "modal-headerex" class="modal-header">
           <div class="row">
-            <div id="station-info" class="col-md-8"></div>
-            <div class="col-md-4">
-              <div align="right">
+            <div class="col-md-10">
+              <h4 id="Station-Name-Tab"> 
+
+              </h4>
+            </div>
+
+            <div class="col-md-2">
+              <div class = "logos_cuadrado" align="right">
                 <img class="obslogos" src="{% static 'national_water_level_forecast_ecuador/images/my-icon-inamhi.png' %}">
-                <img class="obslogos" src="{% static 'national_water_level_forecast_ecuador/images/byu_logo.png' %}">
-                <img class="obslogos" src="{% static 'national_water_level_forecast_ecuador/images/Servir_logo.jpeg' %}">
                 <img class="obslogos" src="{% static 'national_water_level_forecast_ecuador/images/EcoCiencia.png' %}">
+                <img class="obslogos" src="{% static 'national_water_level_forecast_ecuador/images/byu_logo.png' %}">
+                <img class="obslogos" id="servir_logo" src="{% static 'national_water_level_forecast_ecuador/images/Servir_logo.jpeg' %}">
               </div>
+                
             </div>
             <div id="interaction"></div>
           </div>
-          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+          <div class="row">
+            <div id="station-info" class="col-md-10 row"></div>
+
+          </div>
 
         </div>
         <div class="modal-body">
           <!-- Nav tabs -->
-          <ul class="nav nav-tabs" role="tablist">
-            <li role="presentation" class="active"><a id="hydrographs_tab_link" href="#hydrographs" aria-controls="hydrographs" role="tab" data-bs-toggle="tab">Hydrographs</a></li>
-            <li role="presentation"><a id="visualAnalysis_tab_link" href="#visualAnalysis" aria-controls="visualAnalysis" role="tab" data-bs-toggle="tab">Visual Analysis</a></li>
-            <li role="presentation"><a id="metricsReport_tab_link" href="#metricsReport" aria-controls="metricsReport" role="tab" data-bs-toggle="tab">Metrics Report</a></li>
-            <li role="presentation"><a id="forecast_tab_link" href="#forecast" aria-controls="forecast" role="tab" data-bs-toggle="tab">Forecast</a></li>
+          <ul class="nav nav-tabs">
+            <li  class="nav-item"><a class="nav-link active" id="hydrographs_tab_link" href="#hydrographs" aria-controls="hydrographs"  data-bs-toggle="tab">Hydrographs</a></li>
+            <li class="nav-item"><a class="nav-link" id="visualAnalysis_tab_link" href="#visualAnalysis" aria-controls="visualAnalysis"  data-bs-toggle="tab">Visual Analysis</a></li>
+            <li class="nav-item"><a class="nav-link" id="metricsReport_tab_link" href="#metricsReport" aria-controls="metricsReport"  data-bs-toggle="tab">Metrics Report</a></li>
+            <li  class="nav-item"><a class="nav-link" id="forecast_tab_link" href="#forecast" aria-controls="forecast" data-bs-toggle="tab">Forecast</a></li>
           </ul>
           <!-- Tab panes -->
           <div class="tab-content">
@@ -169,7 +178,7 @@
                   <h2>Table</h2>
                   <hr>
 
-                  <h3>Select the Metrics to Include in the Report:</h3>
+                  <h5>Select the Metrics to Include in the Report:</h5>
                   <a href="https://hydroerr.readthedocs.io/en/stable/list_of_metrics.html" target="_blank">[Docs]</a>
                   <div id="metric_select_error"></div>
                   {# Displaying all of the metrics for the user to select #}
@@ -179,7 +188,7 @@
                     {% endfor %}
                   </select>
                   <br>
-                  <h4>
+                  
                     <button type="button" class="btn btn-success" id="make-table">Add Metrics to List</button><br><br>
                     <p>
                       Press the button to add metrics to the default list. The default list includes: Mean Error, Root Mean Square Error, Normalize Root Mean Square Error- mean
@@ -191,7 +200,7 @@
                     <!-- <span style="font-size: 15px;" class="glyphicon glyphicon-info-sign icon_info"
                           title="Optional parameter input boxes will appear here if a metric with optional parameters is selected.">
                     </span> -->
-                  </h4>
+                  
                   <div class="form-row" id="mase_param_div" style="display: none">
                     <div class="form-group col-md-12" id="MASE_form">
                       <label for="mase_m">Mean Absolute Squared M Value</label>

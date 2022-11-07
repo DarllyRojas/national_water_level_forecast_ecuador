@@ -388,7 +388,7 @@ def get_dailyAverages(request):
             'error': f'{"error: " + str(e), "line: " + str(exc_tb.tb_lineno)}',
         })
 
-@controller(name='get_monthlyAverages', url='national-water-level-forecast-ecuador/get_monthlyAverages')
+@controller(name='get_monthlyAverages', url='national-water-level-forecast-ecuador/get-monthlyAverages')
 def get_monthlyAverages(request):
     """
     Get observed data from csv files in Hydroshare
@@ -542,7 +542,7 @@ def get_scatterPlot(request):
             'error': f'{"error: " + str(e), "line: " + str(exc_tb.tb_lineno)}',
         })
 
-@controller(name='get_scatterPlotLogScale', url='national-water-level-forecast-ecuador/get_scatterPlotLogScale')
+@controller(name='get_scatterPlotLogScale', url='national-water-level-forecast-ecuador/get-scatterPlotLogScale')
 def get_scatterPlotLogScale(request):
     """
     Get observed data from csv files in Hydroshare
