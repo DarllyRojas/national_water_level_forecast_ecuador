@@ -1,5 +1,7 @@
 # This file should be committed to your app code.
-version: 1.2
+version: 2.0
+# This should be greater or equal to your tethys-platform in your environment
+tethys_version: ">=4.0.0"
 # This should match the app - package name in your setup.py
 name: national_water_level_forecast_ecuador
 
@@ -8,16 +10,10 @@ requirements:
   skip: false
   conda:
     channels:
-      - conda-forge
     packages:
-      - geoglows
-      - hydrostats
-      - pandas
-      - requests
-      - plotly
-      - numpy
-      - scipy
-      - hs_restclient
+
   pip:
+
+  npm:
 
 post:
